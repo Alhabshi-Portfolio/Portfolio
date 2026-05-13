@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>سالم الحبشي — البورتفوليو الأكاديمي</title>
+  <title>Salem Alhabshi — Academic Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -20,7 +20,6 @@
       --gold-dim: rgba(201,162,39,0.12);
       --purple: #5b21b6;
       --purple-mid: #7c3aed;
-      --navy-light: #1a2d5a;
       --text: #eef2ff;
       --text-m: #8896b3;
       --text-d: #3d4e6a;
@@ -28,11 +27,15 @@
       --tr: 0.22s cubic-bezier(0.4,0,0.2,1);
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'IBM Plex Sans Arabic', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+    body { font-family: 'IBM Plex Sans', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
 
     .bg { position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden; }
     .bg::before { content:''; position:absolute; width:800px; height:800px; border-radius:50%; background:radial-gradient(circle,rgba(12,25,80,0.55),transparent 65%); top:-300px; left:50%; transform:translateX(-50%); }
     .bg::after  { content:''; position:absolute; width:500px; height:500px; border-radius:50%; background:radial-gradient(circle,rgba(91,33,182,0.10),transparent 65%); bottom:20%; right:-100px; }
+
+    /* LANG SWITCH */
+    .lang-btn { position:fixed; top:14px; left:16px; z-index:200; display:flex; align-items:center; gap:6px; padding:7px 14px; border-radius:100px; border:1px solid var(--border); background:rgba(5,9,26,.85); backdrop-filter:blur(12px); color:var(--text-m); font-family:inherit; font-size:12.5px; font-weight:500; cursor:pointer; text-decoration:none; transition:all var(--tr); }
+    .lang-btn:hover { border-color:rgba(201,162,39,.4); color:var(--gold-light); background:var(--gold-dim); }
 
     /* BANNER */
     .banner { position:relative; z-index:1; width:100%; height:220px; overflow:hidden; }
@@ -61,8 +64,8 @@
     .chip.s { border-color:rgba(14,165,233,.4);  color:#7dd3fc; background:rgba(14,165,233,.08); }
 
     .stats { display:flex; border:1px solid var(--border); border-radius:14px; overflow:hidden; background:var(--surface); }
-    .stat  { flex:1; padding:16px 20px; text-align:center; border-left:1px solid var(--border); }
-    .stat:last-child { border-left:none; }
+    .stat  { flex:1; padding:16px 20px; text-align:center; border-right:1px solid var(--border); }
+    .stat:last-child { border-right:none; }
     .sn { display:block; font-size:24px; font-weight:700; color:var(--gold); line-height:1; margin-bottom:4px; }
     .sl { font-size:11.5px; color:var(--text-d); }
 
@@ -80,16 +83,16 @@
     .sh { display:flex; align-items:center; gap:12px; margin-bottom:22px; }
     .si { width:36px; height:36px; border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0; }
     .st { font-size:19px; font-weight:600; }
-    .sc { font-size:12px; color:var(--text-d); background:var(--surface); border:1px solid var(--border); padding:2px 10px; border-radius:100px; margin-right:auto; }
+    .sc { font-size:12px; color:var(--text-d); background:var(--surface); border:1px solid var(--border); padding:2px 10px; border-radius:100px; margin-left:auto; }
 
     /* FEATURED */
     .feat { position:relative; overflow:hidden; border-radius:var(--r); border:1px solid rgba(201,162,39,.22); background:linear-gradient(135deg,rgba(12,25,70,.6),rgba(91,33,182,.05)); padding:30px; margin-bottom:14px; transition:transform var(--tr),box-shadow var(--tr); }
     .feat:hover { transform:translateY(-2px); box-shadow:0 10px 36px rgba(201,162,39,.12); }
-    .feat::before { content:''; position:absolute; top:-60px; right:-60px; width:220px; height:220px; border-radius:50%; background:radial-gradient(circle,rgba(201,162,39,.10),transparent 70%); pointer-events:none; }
+    .feat::before { content:''; position:absolute; top:-60px; left:-60px; width:220px; height:220px; border-radius:50%; background:radial-gradient(circle,rgba(201,162,39,.10),transparent 70%); pointer-events:none; }
 
     .sb { display:inline-flex; align-items:center; gap:5px; font-size:11.5px; font-weight:600; padding:4px 11px; border-radius:100px; background:var(--gold-dim); border:1px solid rgba(201,162,39,.35); color:var(--gold-light); margin-bottom:12px; }
     .ft { font-size:clamp(17px,2.5vw,22px); font-weight:700; margin-bottom:8px; line-height:1.4; }
-    .fen { font-size:12px; color:var(--text-d); direction:ltr; text-align:right; margin-bottom:10px; font-style:italic; }
+    .far { font-size:12px; color:var(--text-d); direction:rtl; text-align:left; margin-bottom:10px; font-style:italic; }
     .fd  { font-size:14.5px; color:var(--text-m); margin-bottom:18px; max-width:680px; line-height:1.65; }
 
     /* GRID + CARD */
@@ -98,7 +101,7 @@
     .card:hover { transform:translateY(-2px); border-color:rgba(201,162,39,.3); box-shadow:0 6px 28px rgba(0,0,0,.4); }
     .ci { width:44px; height:44px; border-radius:11px; display:flex; align-items:center; justify-content:center; font-size:20px; margin-bottom:14px; }
     .ct { font-size:15.5px; font-weight:600; color:var(--text); margin-bottom:6px; line-height:1.4; }
-    .ce { font-size:12px; color:var(--text-d); direction:ltr; text-align:right; margin-bottom:9px; font-style:italic; }
+    .car { font-size:12px; color:var(--text-d); direction:rtl; text-align:left; margin-bottom:9px; font-style:italic; }
     .cd { font-size:13.5px; color:var(--text-m); margin-bottom:14px; line-height:1.6; }
 
     /* TAGS */
@@ -123,24 +126,20 @@
     .rev { opacity:0; transform:translateY(18px); transition:opacity .5s,transform .5s; }
     .rev.show { opacity:1; transform:translateY(0); }
 
-    /* LANG SWITCH */
-    .lang-btn { position:fixed; top:14px; right:16px; z-index:200; display:flex; align-items:center; gap:6px; padding:7px 14px; border-radius:100px; border:1px solid var(--border); background:rgba(5,9,26,.85); backdrop-filter:blur(12px); color:var(--text-m); font-family:inherit; font-size:12.5px; font-weight:500; cursor:pointer; text-decoration:none; transition:all var(--tr); }
-    .lang-btn:hover { border-color:rgba(201,162,39,.4); color:var(--gold-light); background:var(--gold-dim); }
-
     @media(max-width:580px){
       .banner { height:150px; }
       .hero { padding:0 16px 40px; margin-top:-50px; }
-      .lang-btn { top:10px; right:10px; }
       .stats{display:grid;grid-template-columns:1fr 1fr;border-radius:12px;}
-      .stat:nth-child(2){border-left:1px solid var(--border);} .stat:nth-child(3){border-top:1px solid var(--border);border-left:none;} .stat:nth-child(4){border-top:1px solid var(--border);}
+      .stat:nth-child(2){border-right:1px solid var(--border);} .stat:nth-child(3){border-top:1px solid var(--border);border-right:none;} .stat:nth-child(4){border-top:1px solid var(--border);}
       .feat{padding:20px;} .main{padding:28px 14px 60px;} .grid{grid-template-columns:1fr;} .nav{padding:10px 12px;}
+      .lang-btn { top:10px; left:10px; }
     }
   </style>
 </head>
 <body>
 <div class="bg"></div>
 
-<a class="lang-btn" href="en.html">🌐 English</a>
+<a class="lang-btn" href="index.html">🌐 العربية</a>
 
 <div class="banner">
   <img src="banner.png" alt="" id="bannerImg" />
@@ -148,92 +147,92 @@
 </div>
 
 <header class="hero">
-  <div class="ring"><img id="pImg" src="profile-photo.png" alt="سالم الحبشي"/><div id="pFallback">س.ح</div></div>
-  <div class="dot">متاح للفرص المهنية</div>
-  <h1 class="hero-name">سالم الحبشي</h1>
-  <p class="hero-sub">إدارة الفعاليات والضيافة · أبحاث أكاديمية</p>
+  <div class="ring"><img id="pImg" src="profile-photo.png" alt="Salem Alhabshi"/><div id="pFallback">S.A</div></div>
+  <div class="dot">Available for Professional Opportunities</div>
+  <h1 class="hero-name">Salem Alhabshi</h1>
+  <p class="hero-sub">Event Management & Hospitality · Academic Research</p>
   <div class="chips">
-    <span class="chip b">🎪 إدارة الفعاليات</span>
-    <span class="chip v">🏨 ضيافة وسياحة</span>
-    <span class="chip s">🤖 تطبيقات الذكاء الاصطناعي</span>
-    <span class="chip">📣 التسويق الرياضي</span>
-    <span class="chip">🛡️ أمن وسلامة الفعاليات</span>
+    <span class="chip b">🎪 Event Management</span>
+    <span class="chip v">🏨 Hospitality & Tourism</span>
+    <span class="chip s">🤖 AI Applications</span>
+    <span class="chip">📣 Sports Marketing</span>
+    <span class="chip">🛡️ Event Safety & Security</span>
   </div>
   <div class="stats">
-    <div class="stat"><span class="sn">3</span><span class="sl">أبحاث</span></div>
-    <div class="stat"><span class="sn">3</span><span class="sl">عروض</span></div>
-    <div class="stat"><span class="sn">4</span><span class="sl">تقارير</span></div>
-    <div class="stat"><span class="sn">1</span><span class="sl">ميداني حصري</span></div>
+    <div class="stat"><span class="sn">3</span><span class="sl">Research Papers</span></div>
+    <div class="stat"><span class="sn">3</span><span class="sl">Presentations</span></div>
+    <div class="stat"><span class="sn">4</span><span class="sl">Reports</span></div>
+    <div class="stat"><span class="sn">1</span><span class="sl">Exclusive Field Work</span></div>
   </div>
 </header>
 
 <nav class="nav"><div class="ni">
-  <button class="nb active" data-f="all">⬡ الكل</button>
-  <button class="nb" data-f="field">🎤 ميداني</button>
-  <button class="nb" data-f="research">🔬 أبحاث</button>
-  <button class="nb" data-f="pres">📊 عروض</button>
-  <button class="nb" data-f="report">📋 تقارير وخطط</button>
-  <button class="nb" data-f="sport">⚽ رياضة وفعاليات</button>
+  <button class="nb active" data-f="all">⬡ All</button>
+  <button class="nb" data-f="field">🎤 Field Work</button>
+  <button class="nb" data-f="research">🔬 Research</button>
+  <button class="nb" data-f="pres">📊 Presentations</button>
+  <button class="nb" data-f="report">📋 Reports & Plans</button>
+  <button class="nb" data-f="sport">⚽ Sports & Events</button>
 </div></nav>
 
 <main class="main">
 
-  <!-- ══ العمل الميداني ══ -->
+  <!-- ══ FIELD WORK ══ -->
   <section class="sec rev" data-sec="field">
     <div class="sh">
       <div class="si" style="background:rgba(201,162,39,.15);">🎤</div>
-      <span class="st">العمل الميداني</span>
-      <span class="sc">عمل حصري</span>
+      <span class="st">Field Work</span>
+      <span class="sc">Exclusive</span>
     </div>
     <div class="feat" style="border-color:rgba(201,162,39,.4);background:linear-gradient(135deg,rgba(201,162,39,.08),rgba(91,33,182,.04));">
-      <div class="sb" style="background:rgba(201,162,39,.18);border-color:rgba(201,162,39,.45);color:var(--gold-light);">🏆 حصري — صناعي</div>
-      <div class="ft">تقرير استقصائي مع Raymond Martinez، المدير التنفيذي لكأس العالم 2026 في فلوريدا</div>
-      <div class="fen">Investigative Report — Raymond Martinez, COO of FIFA World Cup 2026 (Florida)</div>
-      <p class="fd">تقرير استقصائي مبني على لقاء مباشر مع Raymond Martinez، المدير التنفيذي لعمليات كأس العالم FIFA 2026 في فلوريدا. يتناول رؤى من داخل الصناعة حول تنظيم أكبر الفعاليات الرياضية في العالم، التحديات اللوجستية، واستراتيجيات الإدارة على مستوى بطولة عالمية.</p>
+      <div class="sb" style="background:rgba(201,162,39,.18);border-color:rgba(201,162,39,.45);color:var(--gold-light);">🏆 Exclusive — Industry</div>
+      <div class="ft">Investigative Report with Raymond Martinez, COO of FIFA World Cup 2026 (Florida)</div>
+      <div class="far">تقرير استقصائي مع المدير التنفيذي لكأس العالم 2026 في فلوريدا</div>
+      <p class="fd">An investigative report based on a direct meeting with Raymond Martinez, COO of FIFA World Cup 2026 operations in Florida. Covers insider industry perspectives on organizing the world's largest sporting event, logistical challenges, and management strategies at a world championship level.</p>
       <div class="tags">
         <span class="tag go">🌐 FIFA WC 2026</span>
-        <span class="tag b">🎤 استقصائي</span>
-        <span class="tag v">🏟️ فعاليات كبرى</span>
-        <span class="tag w">🤝 شبكة صناعية</span>
+        <span class="tag b">🎤 Investigative</span>
+        <span class="tag v">🏟️ Mega Events</span>
+        <span class="tag w">🤝 Industry Network</span>
       </div>
       <div class="files" id="f0"></div>
     </div>
   </section>
 
-  <!-- ══ الأبحاث الأكاديمية ══ -->
+  <!-- ══ RESEARCH ══ -->
   <section class="sec rev" data-sec="research">
     <div class="sh">
       <div class="si" style="background:rgba(91,33,182,.15);">🔬</div>
-      <span class="st">الأبحاث الأكاديمية</span>
-      <span class="sc">3 أبحاث</span>
+      <span class="st">Academic Research</span>
+      <span class="sc">3 Papers</span>
     </div>
 
     <!-- Featured: AI Paper -->
     <div class="feat">
-      <div class="sb">⭐ البحث الأبرز</div>
-      <div class="ft">هل يمكننا تخطيط الفعاليات الكبرى باستخدام الذكاء الاصطناعي؟</div>
-      <div class="fen">Can We Plan Mega-Events Using Artificial Intelligence?</div>
-      <p class="fd">بحث أكاديمي متكامل يستكشف كيف يُعيد الذكاء الاصطناعي تشكيل تخطيط الفعاليات الضخمة، مستعرضاً نماذج عالمية كأولمبياد باريس 2024 وكأس العالم 2026، مع تحليل أخلاقيات المراقبة وآليات اتخاذ القرار.</p>
+      <div class="sb">⭐ Featured Research</div>
+      <div class="ft">Can We Plan Mega-Events Using Artificial Intelligence?</div>
+      <div class="far">هل يمكننا تخطيط الفعاليات الكبرى باستخدام الذكاء الاصطناعي؟</div>
+      <p class="fd">A comprehensive academic study exploring how AI is reshaping mega-event planning, examining global case studies including the Paris 2024 Olympics and FIFA World Cup 2026, with analysis of surveillance ethics and AI-driven decision-making mechanisms.</p>
       <div class="tags">
-        <span class="tag v">🤖 ذكاء اصطناعي</span>
-        <span class="tag b">🎪 فعاليات كبرى</span>
-        <span class="tag s">🔐 أمن وأخلاقيات</span>
-        <span class="tag go">📌 بحث مميز</span>
+        <span class="tag v">🤖 Artificial Intelligence</span>
+        <span class="tag b">🎪 Mega Events</span>
+        <span class="tag s">🔐 Ethics & Security</span>
+        <span class="tag go">📌 Featured</span>
       </div>
       <div class="files" id="f1"></div>
     </div>
 
     <!-- Featured: Miami Fair Feasibility Study -->
     <div class="feat" style="border-color:rgba(14,165,233,.25);background:linear-gradient(135deg,rgba(10,30,80,.6),rgba(14,165,233,.04));">
-      <div class="sb" style="background:rgba(14,165,233,.12);border-color:rgba(14,165,233,.35);color:#7dd3fc;">🎡 دراسة جدوى</div>
-      <div class="ft">دراسة جدوى تطوير معرض ميامي-ديد للشباب</div>
-      <div class="fen">Miami-Dade Youth Fair — Feasibility Study</div>
-      <p class="fd">دراسة جدوى شاملة لتطوير تجربة الزوار عبر نظام "جواز السفر" التفاعلي، تتضمن تحليل السوق والمنافسين، نموذج الإيرادات، والتوصيات الاستراتيجية لإحدى أبرز الفعاليات المجتمعية في ميامي.</p>
+      <div class="sb" style="background:rgba(14,165,233,.12);border-color:rgba(14,165,233,.35);color:#7dd3fc;">🎡 Feasibility Study</div>
+      <div class="ft">Miami-Dade Youth Fair — Feasibility Study</div>
+      <div class="far">دراسة جدوى تطوير معرض ميامي للشباب</div>
+      <p class="fd">A comprehensive feasibility study for developing visitor experience through an interactive "Passport" system, including market and competitor analysis, revenue modeling, and strategic recommendations for one of Miami's most prominent community events.</p>
       <div class="tags">
-        <span class="tag s">🎡 تخطيط فعاليات</span>
-        <span class="tag g">📍 ميامي</span>
-        <span class="tag b">📊 تحليل سوق</span>
-        <span class="tag w">💡 ابتكار</span>
+        <span class="tag s">🎡 Event Planning</span>
+        <span class="tag g">📍 Miami</span>
+        <span class="tag b">📊 Market Analysis</span>
+        <span class="tag w">💡 Innovation</span>
       </div>
       <div class="files" id="f2"></div>
     </div>
@@ -242,77 +241,77 @@
     <div class="grid">
       <div class="card">
         <div class="ci" style="background:rgba(201,162,39,.12);">🏟️</div>
-        <div class="ct">تقنيات إدارة الملاعب الحديثة</div>
-        <div class="ce">Stadium Management Technology</div>
-        <p class="cd">ورقة أكاديمية تستعرض أحدث تقنيات إدارة الملاعب، من التذاكر الذكية إلى مراقبة الحشود وإدارة الطاقة.</p>
-        <div class="tags"><span class="tag b">🏟️ إدارة ملاعب</span><span class="tag v">💡 تكنولوجيا</span></div>
+        <div class="ct">Stadium Management Technology</div>
+        <div class="car">تقنيات إدارة الملاعب الحديثة</div>
+        <p class="cd">An academic paper examining the latest stadium management technologies, from smart ticketing to crowd monitoring and energy management systems.</p>
+        <div class="tags"><span class="tag b">🏟️ Stadium Mgmt</span><span class="tag v">💡 Technology</span></div>
         <div class="files" id="f3"></div>
       </div>
       <div class="card">
         <div class="ci" style="background:rgba(34,197,94,.10);">🍽️</div>
-        <div class="ct">الوعي بمعايير الطعام الحلال في الضيافة</div>
-        <div class="ce">Halal Food Awareness in Hospitality</div>
-        <p class="cd">دراسة ميدانية تقيس مستوى الوعي بمتطلبات الطعام الحلال لدى العاملين في الضيافة بمنهجية كمية.</p>
-        <div class="tags"><span class="tag g">🍽️ ضيافة</span><span class="tag w">📊 ميداني</span></div>
+        <div class="ct">Halal Food Awareness in Hospitality</div>
+        <div class="car">الوعي بمعايير الطعام الحلال في الضيافة</div>
+        <p class="cd">A field study measuring the level of awareness of halal food requirements among hospitality professionals using a quantitative methodology.</p>
+        <div class="tags"><span class="tag g">🍽️ Hospitality</span><span class="tag w">📊 Field Study</span></div>
         <div class="files" id="f4"></div>
       </div>
     </div>
   </section>
 
-  <!-- ══ العروض التقديمية ══ -->
+  <!-- ══ PRESENTATIONS ══ -->
   <section class="sec rev" data-sec="pres">
     <div class="sh">
       <div class="si" style="background:rgba(201,162,39,.12);">📊</div>
-      <span class="st">العروض التقديمية</span>
-      <span class="sc">3 عروض</span>
+      <span class="st">Presentations</span>
+      <span class="sc">3 Decks</span>
     </div>
     <div class="grid">
       <div class="card">
         <div class="ci" style="background:rgba(244,63,94,.10);">😮‍💨</div>
-        <div class="ct">الإرهاق الوظيفي في صناعة الضيافة</div>
-        <div class="ce">Burnout in Hospitality</div>
-        <p class="cd">يحلل ظاهرة الإرهاق الوظيفي في الضيافة وأسبابها وأفضل استراتيجيات الوقاية.</p>
-        <div class="tags"><span class="tag r">🧠 رفاه الموظفين</span><span class="tag g">🏨 ضيافة</span></div>
+        <div class="ct">Burnout in Hospitality</div>
+        <div class="car">الإرهاق الوظيفي في صناعة الضيافة</div>
+        <p class="cd">Analyzes the phenomenon of employee burnout in the hospitality industry, its root causes, and the most effective prevention strategies.</p>
+        <div class="tags"><span class="tag r">🧠 Employee Wellbeing</span><span class="tag g">🏨 Hospitality</span></div>
         <div class="files" id="f5"></div>
       </div>
       <div class="card">
         <div class="ci" style="background:rgba(91,33,182,.12);">🏨</div>
-        <div class="ct">التضخم في العقارات الفندقية</div>
-        <div class="ce">Hospitality Real Estate Inflation</div>
-        <p class="cd">يرصد أثر التضخم على أسواق العقارات الفندقية وانعكاساته على استراتيجيات الاستثمار.</p>
-        <div class="tags"><span class="tag v">🏨 ضيافة</span><span class="tag r">📈 اقتصاد</span></div>
+        <div class="ct">Hospitality Real Estate Inflation</div>
+        <div class="car">التضخم في العقارات الفندقية</div>
+        <p class="cd">Examines the impact of inflation on hospitality real estate markets and its implications for investment strategies in the sector.</p>
+        <div class="tags"><span class="tag v">🏨 Hospitality</span><span class="tag r">📈 Economics</span></div>
         <div class="files" id="f6"></div>
       </div>
       <div class="card">
         <div class="ci" style="background:rgba(14,165,233,.10);">🗺️</div>
-        <div class="ct">رحلة جواز السفر — معرض ميامي للشباب</div>
-        <div class="ce">Passport Journey — Miami Youth Fair</div>
-        <p class="cd">عرض مرئي لمقترح نظام الجواز التفاعلي لتحسين تجربة زوار المعرض.</p>
-        <div class="tags"><span class="tag s">🎠 تجربة الزوار</span><span class="tag b">✨ ابتكار</span></div>
+        <div class="ct">Passport Journey — Miami Youth Fair</div>
+        <div class="car">رحلة جواز السفر — معرض ميامي للشباب</div>
+        <p class="cd">A visual presentation proposing an interactive passport system to enhance visitor experience at the Miami Youth Fair.</p>
+        <div class="tags"><span class="tag s">🎠 Visitor Experience</span><span class="tag b">✨ Innovation</span></div>
         <div class="files" id="f7"></div>
       </div>
     </div>
   </section>
 
-  <!-- ══ التقارير والخطط ══ -->
+  <!-- ══ REPORTS & PLANS ══ -->
   <section class="sec rev" data-sec="report">
     <div class="sh">
       <div class="si" style="background:rgba(34,197,94,.10);">📋</div>
-      <span class="st">التقارير والخطط</span>
-      <span class="sc">3 أعمال</span>
+      <span class="st">Reports & Plans</span>
+      <span class="sc">3 Works</span>
     </div>
 
-    <!-- Featured: Sandals Marketing Plan -->
+    <!-- Featured: Sandals -->
     <div class="feat" style="border-color:rgba(14,165,233,.25);background:linear-gradient(135deg,rgba(10,30,80,.6),rgba(14,165,233,.04));">
-      <div class="sb" style="background:rgba(14,165,233,.12);border-color:rgba(14,165,233,.35);color:#7dd3fc;">🏝️ خطة تسويقية</div>
-      <div class="ft">خطة تسويقية لمنتجعات Sandals الدولية</div>
-      <div class="fen">Marketing Plan — Sandals Resort International</div>
-      <p class="fd">خطة تسويقية متكاملة لأحد أبرز سلاسل المنتجعات الفاخرة في منطقة البحر الكاريبي، تشمل تحليل SWOT، تقسيم السوق المستهدف، واستراتيجيات الترويج عبر القنوات الرقمية والتقليدية.</p>
+      <div class="sb" style="background:rgba(14,165,233,.12);border-color:rgba(14,165,233,.35);color:#7dd3fc;">🏝️ Marketing Plan</div>
+      <div class="ft">Marketing Plan — Sandals Resort International</div>
+      <div class="far">خطة تسويقية لمنتجعات Sandals الدولية</div>
+      <p class="fd">A comprehensive marketing plan for one of the Caribbean's most prominent luxury resort chains, including SWOT analysis, target market segmentation, and promotional strategies across digital and traditional channels.</p>
       <div class="tags">
-        <span class="tag s">🏝️ سياحة فاخرة</span>
-        <span class="tag b">📣 تسويق</span>
-        <span class="tag go">📊 تحليل SWOT</span>
-        <span class="tag w">🌎 كاريبي</span>
+        <span class="tag s">🏝️ Luxury Tourism</span>
+        <span class="tag b">📣 Marketing</span>
+        <span class="tag go">📊 SWOT Analysis</span>
+        <span class="tag w">🌎 Caribbean</span>
       </div>
       <div class="files" id="f8"></div>
     </div>
@@ -321,45 +320,45 @@
     <div class="grid">
       <div class="card">
         <div class="ci" style="background:rgba(201,162,39,.12);">🛡️</div>
-        <div class="ct">تخطيط السلامة والأمن للفعاليات</div>
-        <div class="ce">Event Safety and Security Planning</div>
-        <p class="cd">يغطي منهجيات السلامة للفعاليات، من تقييم المخاطر وإدارة الحشود إلى خطط الطوارئ.</p>
-        <div class="tags"><span class="tag b">🛡️ أمن الفعاليات</span><span class="tag v">⚠️ مخاطر</span></div>
+        <div class="ct">Event Safety and Security Planning</div>
+        <div class="car">تخطيط السلامة والأمن للفعاليات</div>
+        <p class="cd">Covers event safety methodologies from risk assessment and crowd management to emergency response planning.</p>
+        <div class="tags"><span class="tag b">🛡️ Event Security</span><span class="tag v">⚠️ Risk Mgmt</span></div>
         <div class="files" id="f9"></div>
       </div>
       <div class="card">
         <div class="ci" style="background:rgba(91,33,182,.12);">👔</div>
-        <div class="ct">القيادة الجيدة في صناعة الضيافة</div>
-        <div class="ce">Good Leadership in the Hospitality Industry</div>
-        <p class="cd">تتناول سمات القيادة الفعّالة في الضيافة وأثرها على رضا الموظفين وجودة الخدمة.</p>
-        <div class="tags"><span class="tag v">👔 قيادة</span><span class="tag g">🌟 ضيافة</span></div>
+        <div class="ct">Good Leadership in the Hospitality Industry</div>
+        <div class="car">القيادة الجيدة في صناعة الضيافة</div>
+        <p class="cd">Examines effective leadership traits in hospitality and their impact on employee satisfaction and service quality.</p>
+        <div class="tags"><span class="tag v">👔 Leadership</span><span class="tag g">🌟 Hospitality</span></div>
         <div class="files" id="f10"></div>
       </div>
     </div>
   </section>
 
-  <!-- ══ الرياضة والفعاليات ══ -->
+  <!-- ══ SPORTS & EVENTS ══ -->
   <section class="sec rev" data-sec="sport">
     <div class="sh">
       <div class="si" style="background:rgba(201,162,39,.12);">⚽</div>
-      <span class="st">الرياضة والفعاليات الكبرى</span>
-      <span class="sc">عملان</span>
+      <span class="st">Sports & Mega Events</span>
+      <span class="sc">2 Works</span>
     </div>
     <div class="grid">
       <div class="card">
         <div class="ci" style="background:rgba(201,162,39,.12);">🏆</div>
-        <div class="ct">مقترح رعاية كأس العالم FIFA 2026</div>
-        <div class="ce">Sponsorship Proposal — FIFA World Cup 2026</div>
-        <p class="cd">خطة رعاية احترافية تتضمن أهداف الشراكة، حزم الرعاية المقترحة، والعائد المتوقع.</p>
-        <div class="tags"><span class="tag go">⚽ FIFA 2026</span><span class="tag v">💼 تسويق رياضي</span></div>
+        <div class="ct">Sponsorship Proposal — FIFA World Cup 2026</div>
+        <div class="car">مقترح رعاية كأس العالم FIFA 2026</div>
+        <p class="cd">A professional sponsorship proposal including partnership objectives, proposed sponsorship packages, and expected return on investment.</p>
+        <div class="tags"><span class="tag go">⚽ FIFA 2026</span><span class="tag v">💼 Sports Marketing</span></div>
         <div class="files" id="f11"></div>
       </div>
       <div class="card">
         <div class="ci" style="background:rgba(34,197,94,.10);">📋</div>
-        <div class="ct">تقرير فعاليات FIFA 22</div>
-        <div class="ce">FIFA 22 Report</div>
-        <p class="cd">تقرير أكاديمي يحلل جوانب إدارة وتسويق فعاليات FIFA في سياق الأحداث الرياضية الكبرى.</p>
-        <div class="tags"><span class="tag g">⚽ إدارة رياضية</span><span class="tag w">📄 تقرير</span></div>
+        <div class="ct">FIFA 22 Report</div>
+        <div class="car">تقرير فعاليات FIFA 22</div>
+        <p class="cd">An academic report analyzing management and marketing aspects of FIFA events in the context of major sporting occasions.</p>
+        <div class="tags"><span class="tag g">⚽ Sports Management</span><span class="tag w">📄 Report</span></div>
         <div class="files" id="f12"></div>
       </div>
     </div>
@@ -368,8 +367,8 @@
 </main>
 
 <footer>
-  <p style="margin-bottom:6px;font-weight:500;color:var(--text-m);">سالم الحبشي</p>
-  <p>إدارة الفعاليات والضيافة · البورتفوليو الأكاديمي</p>
+  <p style="margin-bottom:6px;font-weight:500;color:var(--text-m);">Salem Alhabshi</p>
+  <p>Event Management & Hospitality · Academic Portfolio</p>
 </footer>
 
 <script>
@@ -386,34 +385,21 @@ function fp(label, type, filePath) {
 }
 
 const data = [
-  // f0: Raymond Martinez
-  [['التقرير الاستقصائي','docx','files/raymond-martinez-investigative-report.docx']],
-  // f1: AI paper — references removed
-  [['النسخة النهائية','docx','files/can-we-plan-mega-events-ai.docx'],
-   ['الملصق العلمي','pdf','files/poster-events-ai.pdf']],
-  // f2: Miami study
-  [['دراسة الجدوى','docx','files/miami-fair-feasibility-study.docx']],
-  // f3: Stadium
-  [['الورقة الأكاديمية','docx','files/stadium-management-technology.docx']],
-  // f4: Halal
-  [['ورقة البحث النهائية','docx','files/halal-food-awareness.docx']],
-  // f5: Burnout
-  [['العرض التقديمي','pptx','files/burnout-in-hospitality.pptx']],
-  // f6: Real estate
-  [['العرض التقديمي','pptx','files/hospitality-real-estate-inflation.pptx']],
-  // f7: Miami PPTX
-  [['العرض التقديمي','pptx','files/miami-dade-passport-journey.pptx']],
-  // f8: Sandals
-  [['الخطة — PDF','pdf','files/sandals-resort-marketing-plan.pdf'],
-   ['الخطة — Word','docx','files/sandals-resort-marketing-plan.docx']],
-  // f9: Safety
-  [['التقرير','docx','files/event-safety-security-planning.docx']],
-  // f10: Leadership
-  [['الورقة الأكاديمية','docx','files/good-leadership-hospitality.docx']],
-  // f11: FIFA 2026
-  [['عرض الرعاية','pptx','files/sponsorship-proposal-fifa-wc-2026.pptx']],
-  // f12: FIFA 22
-  [['التقرير','docx','files/fifa-22-report.docx']]
+  [['Investigative Report','docx','files/raymond-martinez-investigative-report.docx']],
+  [['Final Paper','docx','files/can-we-plan-mega-events-ai.docx'],
+   ['Research Poster','pdf','files/poster-events-ai.pdf']],
+  [['Feasibility Study','docx','files/miami-fair-feasibility-study.docx']],
+  [['Academic Paper','docx','files/stadium-management-technology.docx']],
+  [['Research Paper','docx','files/halal-food-awareness.docx']],
+  [['Presentation','pptx','files/burnout-in-hospitality.pptx']],
+  [['Presentation','pptx','files/hospitality-real-estate-inflation.pptx']],
+  [['Presentation','pptx','files/miami-dade-passport-journey.pptx']],
+  [['Plan — PDF','pdf','files/sandals-resort-marketing-plan.pdf'],
+   ['Plan — Word','docx','files/sandals-resort-marketing-plan.docx']],
+  [['Report','docx','files/event-safety-security-planning.docx']],
+  [['Academic Paper','docx','files/good-leadership-hospitality.docx']],
+  [['Sponsorship Deck','pptx','files/sponsorship-proposal-fifa-wc-2026.pptx']],
+  [['Report','docx','files/fifa-22-report.docx']]
 ];
 
 data.forEach((list, i) => {
@@ -421,18 +407,15 @@ data.forEach((list, i) => {
   if(el) list.forEach(([l,t,p]) => el.appendChild(fp(l,t,p)));
 });
 
-// Profile photo fallback
 const img = document.getElementById('pImg');
 img.onerror = () => { img.style.display='none'; document.getElementById('pFallback').style.display='flex'; };
 
-// Banner fallback
 document.getElementById('bannerImg').onerror = function() {
   this.closest('.banner').style.display = 'none';
   document.querySelector('.hero').style.paddingTop = '72px';
   document.querySelector('.hero').style.marginTop = '0';
 };
 
-// Filter nav
 document.querySelectorAll('.nb').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.nb').forEach(b=>b.classList.remove('active'));
@@ -442,7 +425,6 @@ document.querySelectorAll('.nb').forEach(btn => {
   });
 });
 
-// Reveal on scroll
 const ob = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('show');ob.unobserve(x.target);} }), {threshold:.07});
 document.querySelectorAll('.rev').forEach(el => ob.observe(el));
 </script>
