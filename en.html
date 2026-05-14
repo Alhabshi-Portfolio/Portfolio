@@ -33,14 +33,14 @@
     .bg-frame { position:fixed; top:0; left:0; width:1080px; height:1920px; border:none; z-index:0; pointer-events:none; transform-origin:top left; }
 
     /* LANG SWITCH */
-    .lang-btn { position:fixed; top:14px; left:16px; z-index:200; display:flex; align-items:center; gap:6px; padding:7px 14px; border-radius:100px; border:1px solid var(--border); background:rgba(5,9,26,.85); backdrop-filter:blur(12px); color:var(--text-m); font-family:inherit; font-size:12.5px; font-weight:500; cursor:pointer; text-decoration:none; transition:all var(--tr); }
-    .lang-btn:hover { border-color:rgba(201,162,39,.4); color:var(--gold-light); background:var(--gold-dim); }
+    .lang-btn { position:fixed; top:16px; left:18px; z-index:200; display:flex; align-items:center; gap:7px; padding:9px 18px; border-radius:100px; border:1.5px solid rgba(201,162,39,.6); background:rgba(5,9,26,.92); backdrop-filter:blur(16px); color:var(--gold-light); font-family:inherit; font-size:13px; font-weight:600; cursor:pointer; text-decoration:none; transition:all var(--tr); box-shadow:0 2px 16px rgba(201,162,39,.2), inset 0 0 12px rgba(201,162,39,.05); letter-spacing:.3px; }
+    .lang-btn:hover { border-color:rgba(201,162,39,.9); color:#fff; background:linear-gradient(135deg,rgba(201,162,39,.25),rgba(201,162,39,.1)); box-shadow:0 4px 24px rgba(201,162,39,.35); transform:translateY(-1px); }
 
     /* HERO */
     .hero { position:relative; z-index:1; padding:80px 24px 60px; display:flex; flex-direction:column; align-items:center; text-align:center; }
     .ring { position:relative; width:124px; height:124px; margin-bottom:28px; }
-    .ring::before { content:''; position:absolute; inset:-3px; border-radius:50%; background:linear-gradient(135deg,var(--gold),var(--gold-light),var(--gold)); z-index:0; }
-    .ring::after  { content:''; position:absolute; inset:-8px; border-radius:50%; background:radial-gradient(circle,var(--gold),transparent); opacity:.25; filter:blur(10px); z-index:-1; }
+    .ring::before { content:''; position:absolute; inset:-3px; border-radius:50%; background:linear-gradient(135deg,#1b3a6b,#2a5298,#1b3a6b); z-index:0; }
+    .ring::after  { content:''; position:absolute; inset:-8px; border-radius:50%; background:radial-gradient(circle,#2a5298,transparent); opacity:.35; filter:blur(10px); z-index:-1; }
     .ring img { position:relative; z-index:1; width:100%; height:100%; border-radius:50%; object-fit:cover; border:3px solid var(--bg); display:block; }
     #pFallback { position:absolute; inset:3px; border-radius:50%; background:var(--surface-2); display:none; align-items:center; justify-content:center; font-size:30px; font-weight:700; color:var(--gold); z-index:1; border:3px solid var(--bg); }
 
