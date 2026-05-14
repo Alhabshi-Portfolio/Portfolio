@@ -63,6 +63,14 @@
     .sn { display:block; font-size:24px; font-weight:700; color:var(--gold); line-height:1; margin-bottom:4px; }
     .sl { font-size:11.5px; color:var(--text-d); }
 
+    /* CV BUTTON */
+    .cv-bar { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:28px; }
+    .cv-btn { display:inline-flex; align-items:center; gap:8px; padding:11px 24px; border-radius:100px; font-family:inherit; font-size:13.5px; font-weight:600; text-decoration:none; cursor:pointer; transition:all var(--tr); white-space:nowrap; }
+    .cv-btn.primary { background:linear-gradient(135deg,var(--gold),var(--gold-light)); color:#05091a; border:none; box-shadow:0 4px 20px rgba(201,162,39,.4); }
+    .cv-btn.primary:hover { box-shadow:0 6px 28px rgba(201,162,39,.6); transform:translateY(-2px); }
+    .cv-btn.secondary { background:transparent; color:var(--gold-light); border:1.5px solid rgba(201,162,39,.5); }
+    .cv-btn.secondary:hover { border-color:var(--gold-light); background:var(--gold-dim); transform:translateY(-2px); }
+
     /* NAV */
     .nav { position:sticky; top:0; z-index:100; background:rgba(5,9,26,.92); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); padding:13px 20px; display:flex; justify-content:center; }
     .ni { display:flex; gap:6px; flex-wrap:wrap; justify-content:center; }
@@ -151,6 +159,10 @@
     <div class="stat"><span class="sn">3</span><span class="sl">Presentations</span></div>
     <div class="stat"><span class="sn">4</span><span class="sl">Reports</span></div>
     <div class="stat"><span class="sn">1</span><span class="sl">Exclusive Field Work</span></div>
+  </div>
+  <div class="cv-bar">
+    <a class="cv-btn primary" href="files/cv-english.pdf" download="Salem_Alhabshi_CV_EN.pdf">⬇ Download CV — PDF</a>
+    <a class="cv-btn secondary" href="files/cv-english.docx" download="Salem_Alhabshi_CV_EN.docx">⬇ Word</a>
   </div>
 </header>
 
