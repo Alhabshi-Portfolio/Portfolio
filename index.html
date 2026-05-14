@@ -121,7 +121,22 @@
     .x { font-weight:700; font-size:10px; text-transform:uppercase; }
     .xd { color:#60a5fa; } .xp { color:#fb923c; } .xf { color:#f87171; }
 
-    footer { position:relative; z-index:1; border-top:1px solid var(--border); padding:28px 24px; text-align:center; color:var(--text-d); font-size:13px; }
+    /* CONTACT FOOTER */
+    .contact-section { position:relative; z-index:1; border-top:1px solid var(--border); padding:56px 24px 48px; }
+    .contact-inner { max-width:860px; margin:0 auto; }
+    .contact-heading { text-align:center; margin-bottom:36px; }
+    .contact-heading .ch-label { font-size:10.5px; font-weight:500; letter-spacing:4px; text-transform:uppercase; color:var(--gold); opacity:.7; margin-bottom:10px; }
+    .contact-heading .ch-title { font-size:22px; font-weight:600; color:var(--text); }
+    .contact-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:14px; margin-bottom:32px; }
+    .c-card { display:flex; align-items:center; gap:14px; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:16px 20px; text-decoration:none; color:inherit; transition:all var(--tr); }
+    .c-card:hover { border-color:rgba(201,162,39,.45); background:var(--gold-dim); transform:translateY(-2px); box-shadow:0 6px 24px rgba(0,0,0,.3); }
+    .c-icon { width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; background:var(--gold-dim); border:1px solid rgba(201,162,39,.2); }
+    .c-info { min-width:0; }
+    .c-label { font-size:10px; font-weight:500; letter-spacing:2px; text-transform:uppercase; color:var(--text-d); margin-bottom:4px; }
+    .c-value { font-size:13px; font-weight:500; color:var(--text-m); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; direction:ltr; text-align:right; }
+    .c-card:hover .c-value { color:var(--gold-light); }
+    .contact-copy { text-align:center; }
+    footer { position:relative; z-index:1; padding:20px 24px; text-align:center; color:var(--text-d); font-size:12px; border-top:1px solid var(--border-s); }
     .rev { opacity:0; transform:translateY(18px); transition:opacity .5s,transform .5s; }
     .rev.show { opacity:1; transform:translateY(0); }
 
@@ -367,9 +382,47 @@
 
 </main>
 
+<section class="contact-section">
+  <div class="contact-inner">
+    <div class="contact-heading">
+      <div class="ch-label">تواصل معي</div>
+      <div class="ch-title">بيانات التواصل</div>
+    </div>
+    <div class="contact-grid">
+      <a class="c-card" href="mailto:Sal.Alhabshi@gmail.com">
+        <div class="c-icon">✉️</div>
+        <div class="c-info">
+          <div class="c-label">البريد الإلكتروني</div>
+          <div class="c-value">Sal.Alhabshi@gmail.com</div>
+        </div>
+      </a>
+      <a class="c-card" href="tel:+966561990990">
+        <div class="c-icon">📱</div>
+        <div class="c-info">
+          <div class="c-label">السعودية</div>
+          <div class="c-value">+966 561 990 990</div>
+        </div>
+      </a>
+      <a class="c-card" href="tel:+19546975215">
+        <div class="c-icon">📞</div>
+        <div class="c-info">
+          <div class="c-label">الولايات المتحدة</div>
+          <div class="c-value">+1 954 697 5215</div>
+        </div>
+      </a>
+      <a class="c-card" href="https://www.linkedin.com/in/salem-alhabshi/" target="_blank" rel="noopener">
+        <div class="c-icon">💼</div>
+        <div class="c-info">
+          <div class="c-label">LinkedIn</div>
+          <div class="c-value">salem-alhabshi</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <footer>
-  <p style="margin-bottom:6px;font-weight:500;color:var(--text-m);">سالم الحبشي</p>
-  <p>إدارة الفعاليات والضيافة · البورتفوليو الأكاديمي</p>
+  <p>سالم الحبشي · إدارة الفعاليات والضيافة</p>
 </footer>
 
 <script>
