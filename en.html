@@ -27,23 +27,17 @@
       --tr: 0.22s cubic-bezier(0.4,0,0.2,1);
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'IBM Plex Sans', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+    body { font-family: 'IBM Plex Sans', sans-serif; background: transparent; color: var(--text); overflow-x: hidden; }
 
-    .bg { position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden; }
-    .bg::before { content:''; position:absolute; width:800px; height:800px; border-radius:50%; background:radial-gradient(circle,rgba(12,25,80,0.55),transparent 65%); top:-300px; left:50%; transform:translateX(-50%); }
-    .bg::after  { content:''; position:absolute; width:500px; height:500px; border-radius:50%; background:radial-gradient(circle,rgba(91,33,182,0.10),transparent 65%); bottom:20%; right:-100px; }
+    /* BACKGROUND IFRAME */
+    .bg-frame { position:fixed; top:0; left:0; width:1080px; height:1920px; border:none; z-index:0; pointer-events:none; transform-origin:top left; }
 
     /* LANG SWITCH */
     .lang-btn { position:fixed; top:14px; left:16px; z-index:200; display:flex; align-items:center; gap:6px; padding:7px 14px; border-radius:100px; border:1px solid var(--border); background:rgba(5,9,26,.85); backdrop-filter:blur(12px); color:var(--text-m); font-family:inherit; font-size:12.5px; font-weight:500; cursor:pointer; text-decoration:none; transition:all var(--tr); }
     .lang-btn:hover { border-color:rgba(201,162,39,.4); color:var(--gold-light); background:var(--gold-dim); }
 
-    /* BANNER */
-    .banner { position:relative; z-index:1; width:100%; height:220px; overflow:hidden; }
-    .banner img { width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
-    .banner-overlay { position:absolute; inset:0; background:linear-gradient(to bottom, rgba(5,9,26,0.25), rgba(5,9,26,0.88)); }
-
     /* HERO */
-    .hero { position:relative; z-index:1; padding:0 24px 60px; display:flex; flex-direction:column; align-items:center; text-align:center; margin-top:-62px; }
+    .hero { position:relative; z-index:1; padding:80px 24px 60px; display:flex; flex-direction:column; align-items:center; text-align:center; }
     .ring { position:relative; width:124px; height:124px; margin-bottom:28px; }
     .ring::before { content:''; position:absolute; inset:-3px; border-radius:50%; background:linear-gradient(135deg,var(--gold),var(--gold-light),var(--gold)); z-index:0; }
     .ring::after  { content:''; position:absolute; inset:-8px; border-radius:50%; background:radial-gradient(circle,var(--gold),transparent); opacity:.25; filter:blur(10px); z-index:-1; }
@@ -127,8 +121,7 @@
     .rev.show { opacity:1; transform:translateY(0); }
 
     @media(max-width:580px){
-      .banner { height:150px; }
-      .hero { padding:0 16px 40px; margin-top:-50px; }
+      .hero { padding:60px 16px 40px; }
       .stats{display:grid;grid-template-columns:1fr 1fr;border-radius:12px;}
       .stat:nth-child(2){border-right:1px solid var(--border);} .stat:nth-child(3){border-top:1px solid var(--border);border-right:none;} .stat:nth-child(4){border-top:1px solid var(--border);}
       .feat{padding:20px;} .main{padding:28px 14px 60px;} .grid{grid-template-columns:1fr;} .nav{padding:10px 12px;}
@@ -137,14 +130,9 @@
   </style>
 </head>
 <body>
-<div class="bg"></div>
+<iframe class="bg-frame" src="bg.html" scrolling="no" title="background"></iframe>
 
 <a class="lang-btn" href="index.html">🌐 العربية</a>
-
-<div class="banner">
-  <img src="banner.png" alt="" id="bannerImg" />
-  <div class="banner-overlay"></div>
-</div>
 
 <header class="hero">
   <div class="ring"><img id="pImg" src="profile-photo.png" alt="Salem Alhabshi"/><div id="pFallback">S.A</div></div>
@@ -410,11 +398,16 @@ data.forEach((list, i) => {
 const img = document.getElementById('pImg');
 img.onerror = () => { img.style.display='none'; document.getElementById('pFallback').style.display='flex'; };
 
-document.getElementById('bannerImg').onerror = function() {
-  this.closest('.banner').style.display = 'none';
-  document.querySelector('.hero').style.paddingTop = '72px';
-  document.querySelector('.hero').style.marginTop = '0';
-};
+// Scale background iframe to cover full viewport
+function scaleBg() {
+  const frame = document.querySelector('.bg-frame');
+  if (!frame) return;
+  const scale = Math.max(window.innerWidth / 1080, window.innerHeight / 1920);
+  frame.style.transform = `scale(${scale})`;
+  frame.style.left = `${(window.innerWidth - 1080 * scale) / 2}px`;
+}
+scaleBg();
+window.addEventListener('resize', scaleBg);
 
 document.querySelectorAll('.nb').forEach(btn => {
   btn.addEventListener('click', () => {
